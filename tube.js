@@ -195,15 +195,13 @@ void main() {
 const frag = `
   precision mediump float;
 
-  uniform float size;
   uniform vec4 color;
   uniform mat4 view;
 
   varying vec4 vPosition;
 
   void main() {
-
-    gl_FragColor = vec4(color[0], color[1], color[2], 1.0);
+    gl_FragColor = vec4(color.rgb, 1.0);
   }
 `
 
@@ -231,8 +229,6 @@ const draw = regl({
     ),
 
     color: (context, props) => [1, 0.2, 0.2, 1],
-
-    size: heightSubdivision,
   },
   vert,
   frag
