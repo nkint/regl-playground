@@ -25,30 +25,28 @@ for (let i = 0; i < NUM; i++) {
 const vert = `
 precision mediump float;
 
-// attributes of our mesh
+// position: a one dimensional float along the X axis in the range -0.5 to 0.5, telling us the distance of the vertex along the curve
 attribute float position;
+
+// a float in radians in the range -π to π, telling us how far around the tube this vertex is
 attribute float angle;
 
-// built-in uniforms from ThreeJS camera and Object3D
 uniform mat4 projection;
 uniform mat4 view;
 
-
-// Import a couple utilities
 float PI = 3.1415926535897932384626433832795;
-
 const float MAX_NUMBER = 116385.;
 const float EPSILON = 1.19209290e-7;
 
 const float lengthSegments = 100.0;
 const float thickness = 0.1;
-
 const float radius = 5.0;
 
-// Creates an animated torus knot
+// parametric equation to make the tube
 vec3 sample (float t) {
   float beta = t * PI;
 
+  // a simple sphere
   float angleSample = t * 2.0 * PI;
   vec2 rot = vec2(cos(angleSample) * radius, sin(angleSample) * radius);
   return vec3(rot, 0.0);
@@ -67,6 +65,7 @@ void rotateByAxisAngle (inout vec3 normal, vec3 axis, float angle) {
   normal = normal + 2.0 * cross(quat.xyz, cross(quat.xyz, normal) + quat.w * normal);
 }
 
+// the easy way
 void createTube (float t, vec2 volume, out vec3 pos, out vec3 normal) {
   // find next sample along curve
   float nextT = t + (1.0 / lengthSegments);
@@ -90,6 +89,7 @@ void createTube (float t, vec2 volume, out vec3 pos, out vec3 normal) {
   pos.xyz = cur + B * volume.x * circX + N * volume.y * circY;
 }
 
+// the robust way
 void createTube2 (float t, vec2 volume, out vec3 outPosition, out vec3 outNormal) {
   // Reference:
   // https://github.com/mrdoob/three.js/blob/b07565918713771e77b8701105f2645b1e5009a7/src/extras/core/Curve.js#L268
