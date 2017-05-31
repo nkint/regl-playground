@@ -91,7 +91,7 @@ function doIntersect(projection, view, viewportWidth, viewportHeight, mouse) {
 const sphereFixed = createIcosphere(5)
 sphereFixed.normals = normals(sphereFixed.cells, sphereFixed.positions)
 sphereFixed.model = mat4.translate([], mat4.identity([]), [0, 0, 0])
-// ---------------- move a fixed sphere
+// ---------------- a fixed sphere in one corner of the screen
 camera.tick()
 const view = camera.view()
 const viewportWidth = canvas.getBoundingClientRect().width
@@ -104,7 +104,7 @@ const projection = mat4.perspective([],
   1000)
 const hit = doIntersect(projection, view, viewportWidth, viewportHeight, mouse)
 mat4.translate(sphereFixed.model, sphereFixed.model, hit)
-// ---------------- move a fixed sphere
+// ---------------- a fixed sphere in one corner of the screen
 
 var outSphereModel = mat4.identity([])
 var mpos = mp(canvas)
