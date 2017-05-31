@@ -738,6 +738,17 @@ callsites@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-0.2.0.tgz#afab96262910a7f33c19a5775825c69f34e350ca"
 
+camera-picking-ray@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/camera-picking-ray/-/camera-picking-ray-1.0.1.tgz#49567a4edc2de5bc13e4b6fd959520bf13a30490"
+  dependencies:
+    camera-unproject "^1.0.1"
+    gl-vec3 "^1.0.3"
+
+camera-unproject@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/camera-unproject/-/camera-unproject-1.0.1.tgz#86927a9d6d5340a8c9e36da840f7ccb6d6da12cf"
+
 canvas-fit@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/canvas-fit/-/canvas-fit-1.5.0.tgz#ae13be66ade42f5be0e487e345fce30a5e5b5e5f"
@@ -1160,6 +1171,10 @@ gl-matrix@^2.2.0:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/gl-matrix/-/gl-matrix-2.3.2.tgz#aac808c74af7d5db05fe04cb60ca1a0fcb174d74"
 
+gl-vec3@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/gl-vec3/-/gl-vec3-1.0.3.tgz#110fd897d0729f6398307381567d0944941bf22b"
+
 glob@^7.0.0, glob@^7.0.3, glob@^7.0.5:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
@@ -1212,6 +1227,12 @@ home-or-tmp@^2.0.0:
 hosted-git-info@^2.1.4:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.4.2.tgz#0076b9f46a270506ddbaaea56496897460612a67"
+
+icosphere@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/icosphere/-/icosphere-1.0.0.tgz#8251555d437db9eabc688f88124b68a30fa84710"
+  dependencies:
+    vectors "^0.1.0"
 
 ignore@^3.0.11, ignore@^3.2.0:
   version "3.3.3"
@@ -1437,6 +1458,12 @@ mouse-position@^1.0.0:
   dependencies:
     events "^1.0.1"
 
+mouse-position@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/mouse-position/-/mouse-position-2.0.1.tgz#3e9ca492acc78ecd0d9d80a44491d12aae0c8a67"
+  dependencies:
+    events "^1.0.1"
+
 mouse-pressed@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/mouse-pressed/-/mouse-pressed-0.0.1.tgz#1e62ae992d7966177e5ffc49c839128e1b27b7bb"
@@ -1595,6 +1622,10 @@ prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
 
+primitive-plane@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/primitive-plane/-/primitive-plane-2.0.0.tgz#85dc2a858315d1735d5de87107c88a44089bc9dd"
+
 private@^0.1.6:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.7.tgz#68ce5e8a1ef0a23bb570cc28537b5332aba63ef1"
@@ -1606,6 +1637,12 @@ process-nextick-args@~1.0.6:
 progress@^1.1.8:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/progress/-/progress-1.1.8.tgz#e260c78f6161cdd9b0e56cc3e0a85de17c7a57be"
+
+ray-plane-intersection@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ray-plane-intersection/-/ray-plane-intersection-1.0.0.tgz#763be1cd04eddad1847af6d5e70941b7302a47bb"
+  dependencies:
+    gl-vec3 "^1.0.3"
 
 read-pkg-up@^2.0.0:
   version "2.0.0"
@@ -1916,6 +1953,10 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
+
+vectors@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/vectors/-/vectors-0.1.0.tgz#503fbb9b804464126a88ea8ac7999251798ea854"
 
 vkey@0.0.3:
   version "0.0.3"
