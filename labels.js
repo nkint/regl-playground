@@ -9,7 +9,8 @@ const camera = createCamera(regl, {
 
 const canvasWidth = 500
 
-const widthTile = canvasWidth / 2
+const N = 3
+const widthTile = canvasWidth / N
 const heightTile = widthTile
 
 const createCanvas = (width, height, words) => {
@@ -42,7 +43,7 @@ const createCanvas = (width, height, words) => {
   return { canvas, tilePositions }
 }
 
-const words = ['1', '2', '3', '4']
+const words = Array(N * N).fill(0).map((n, i) => '#' + i)
 const { canvas, tilePositions } =
   createCanvas(canvasWidth, canvasWidth, words)
 document.body.append(canvas)
@@ -98,7 +99,7 @@ const draw = regl({
 })
 
 const labels = words.map((word, i) => ({
-  translate: [-2 + i * 1.2, Math.random() * 2, 0],
+  translate: [-2 + i * 1.2, 0, 0],
   tilePosition: tilePositions[i].map(n => n / canvasWidth),
   tileSize: [widthTile / canvasWidth, widthTile / canvasWidth],
 }))
