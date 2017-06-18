@@ -1,3 +1,11 @@
+/* TO READ:
+https://0fps.net/2013/07/09/texture-atlases-wrapping-and-mip-mapping/
+
+official regl example:
+https://github.com/regl-project/regl/blob/gh-pages/example/tile.js
+https://github.com/regl-project/regl/blob/gh-pages/example/assets/map.json
+*/
+
 import createRegl from 'regl'
 import createCamera from 'regl-camera'
 import createPlane from 'primitive-plane'
