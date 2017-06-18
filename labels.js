@@ -1,4 +1,11 @@
-/* TO READ:
+/*
+This example demonstrates how to write a texture atlas
+inside a canvas.
+The squared canvas is divided in N * N tile grid
+(so you can write at maximum N * N words).
+Thanks to grovesNL ( https://github.com/grovesNL )
+
+TO READ:
 https://0fps.net/2013/07/09/texture-atlases-wrapping-and-mip-mapping/
 
 official regl example:
