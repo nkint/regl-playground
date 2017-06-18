@@ -51,13 +51,13 @@ const createCanvas = (width, height, words) => {
   return { canvas, tilePositions }
 }
 
-const words = Array(N * N).fill(0).map((n, i) => '#' + i)
+const words = Array(7).fill(0).map((n, i) => '#' + i)
 const { canvas, tilePositions } =
   createCanvas(canvasWidth, canvasWidth, words)
 document.body.append(canvas)
 
 const texture = regl.texture({
-  flipY: true,
+  // flipY: true,
   data: canvas,
 })
 
@@ -72,7 +72,7 @@ const vert = `
     vec3 model = position;
     gl_Position = projection * view * vec4((position + translate), 1);
 
-    vUv = uv;
+    vUv = vec2(uv.x, 1.0 - uv.y);
   }
 `
 
@@ -93,7 +93,7 @@ console.log({plane})
 const draw = regl({
   attributes: {
     position: plane.positions,
-    uv: () => plane.uvs,
+    uv: plane.uvs,
   },
   elements: plane.cells,
   uniforms: {
