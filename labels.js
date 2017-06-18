@@ -74,8 +74,8 @@ const frag = `
   uniform vec2 tilePosition;
   uniform vec2 tileSize;
   void main() {
-    vec2 uv = vUv * vec2(0.5); // tileSize; // + tilePosition;
-    gl_FragColor = texture2D(texture, uv); // vec4(1.0, 0.0, 0.0, 1.0);
+    vec2 uv = vUv * tileSize + tilePosition;
+    gl_FragColor = texture2D(texture, uv);
   }
 `
 
@@ -99,7 +99,7 @@ const draw = regl({
 
 const labels = words.map((word, i) => ({
   translate: [-2 + i * 1.2, Math.random() * 2, 0],
-  tilePosition: tilePositions[i],
+  tilePosition: tilePositions[i].map(n => n / canvasWidth),
   tileSize: [widthTile / canvasWidth, widthTile / canvasWidth],
 }))
 
