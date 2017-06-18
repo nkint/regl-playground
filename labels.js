@@ -9,7 +9,7 @@ const camera = createCamera(regl, {
 
 const canvasWidth = 500
 
-const widthTile = canvasWidth / 3
+const widthTile = canvasWidth / 2
 const heightTile = widthTile
 
 const createCanvas = (width, height, words) => {
@@ -17,10 +17,11 @@ const createCanvas = (width, height, words) => {
   const ctx = canvas.getContext('2d')
   canvas.width = width
   canvas.height = height
-  ctx.fillStyle = 'red'
+  ctx.fillStyle = '#FF3300'
   ctx.fillRect(0, 0, width, height)
 
-  ctx.stroke = 'black'
+  ctx.strokeStyle = 'black'
+  ctx.lineWidth = '2'
 
   const fontSize = 64
   ctx.font = `${fontSize}px monospace`
@@ -41,7 +42,7 @@ const createCanvas = (width, height, words) => {
   return { canvas, tilePositions }
 }
 
-const words = ['a', 'sa', 'dsa', 'dud']
+const words = ['1', '2', '3', '4']
 const { canvas, tilePositions } =
   createCanvas(canvasWidth, canvasWidth, words)
 document.body.append(canvas)
@@ -73,7 +74,7 @@ const frag = `
   uniform vec2 tilePosition;
   uniform vec2 tileSize;
   void main() {
-    vec2 uv = vUv;
+    vec2 uv = vUv * vec2(0.5); // tileSize; // + tilePosition;
     gl_FragColor = texture2D(texture, uv); // vec4(1.0, 0.0, 0.0, 1.0);
   }
 `
@@ -83,7 +84,7 @@ console.log({plane})
 const draw = regl({
   attributes: {
     position: plane.positions,
-    uv: plane.uvs,
+    uv: () => plane.uvs,
   },
   elements: plane.cells,
   uniforms: {
@@ -98,8 +99,8 @@ const draw = regl({
 
 const labels = words.map((word, i) => ({
   translate: [-2 + i * 1.2, Math.random() * 2, 0],
-  tilePosition: tilePositions[i].position,
-  tileSize: [widthTile, widthTile],
+  tilePosition: tilePositions[i],
+  tileSize: [widthTile / canvasWidth, widthTile / canvasWidth],
 }))
 
 console.log({labels})
