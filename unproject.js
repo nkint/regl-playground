@@ -62,7 +62,7 @@ const cameraContex = regl({
       mat4.perspective([],
         Math.PI / 4,
         viewportWidth / viewportHeight,
-        0.01,
+        0.0001,
         1000),
     view: () => {
       camera.tick()
